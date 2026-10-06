@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Script to run the Anthropic Cost Tracker dashboard.
+Script to run the Takebox AI Cost Tracker dashboard.
 """
 
 import os
 import sys
 import logging
-from anthropic_cost_tracker.dashboard.dash_app import run_dashboard
+from juglow_cost_tracker.dashboard.dash_app import run_dashboard
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     """Run the dashboard."""
-    print("\n=== Starting Anthropic Cost Tracker Dashboard ===\n")
+    print("\n=== Starting Takebox AI Cost Tracker Dashboard ===\n")
     
     # The dashboard will be available at http://localhost:8050
     # You can change the port by setting the PORT environment variable

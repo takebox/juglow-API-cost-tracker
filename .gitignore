@@ -39,6 +39,6 @@ Thumbs.db
 
 # Project specific
 *.db
-.anthropic-cost-tracker/
+.Takebox AI-cost-tracker/
 api_cache.db
 cost_tracker.db 

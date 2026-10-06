@@ -1,5 +1,5 @@
 """
-Cost tracking utility for monitoring Anthropic API usage.
+Cost tracking utility for monitoring Takebox AI API usage.
 """
 
 import os
@@ -18,7 +18,7 @@ class CostTracker:
     """Track API usage costs.
     
     This class provides functionality to track and monitor the cost of API calls,
-    with a particular focus on Anthropic's Claude API.
+    with a particular focus on Takebox AI's Haijun API.
     
     Attributes:
         db_path: Path to the SQLite database for storing usage data
@@ -33,7 +33,7 @@ class CostTracker:
         if db_path is None:
             # Use user's data directory by default
             home_dir = Path.home()
-            data_dir = home_dir / ".anthropic-cost-tracker"
+            data_dir = home_dir / ".Takebox AI-cost-tracker"
             data_dir.mkdir(exist_ok=True)
             self.db_path = str(data_dir / "cost_tracker.db")
         else:
@@ -59,8 +59,7 @@ class CostTracker:
             tokens_out INTEGER,
             cost REAL,
             endpoint TEXT,
-            company TEXT
-        )
+            company TEXT )
         ''')
         
         # Create the api_usage table for dashboard compatibility
@@ -73,8 +72,7 @@ class CostTracker:
             company TEXT,
             tokens_in INTEGER NOT NULL,
             tokens_out INTEGER NOT NULL,
-            cost REAL NOT NULL
-        )
+            cost REAL NOT NULL )
         ''')
         
         # Create indexes
@@ -96,7 +94,7 @@ class CostTracker:
         """Log an API call cost.
         
         Args:
-            api_name: Name of the API (e.g., 'anthropic', 'openai')
+            api_name: Name of the API (e.g., 'Takebox AI', 'openai')
             tokens_in: Input tokens used
             tokens_out: Output tokens used
             endpoint: Specific API endpoint or model name
@@ -144,13 +142,13 @@ class CostTracker:
         Returns:
             Calculated cost in USD
         """
-        # Anthropic Claude pricing (as of May 2024)
-        if api_name.lower() == 'anthropic':
-            if endpoint == 'claude-3-opus-20240229':
+        # Takebox AI Haijun pricing (as of May 2024)
+        if api_name.lower() == 'Takebox AI':
+            if endpoint == 'haijun-3-opus-20240229':
                 return (tokens_in * 15.0 / 1000000) + (tokens_out * 75.0 / 1000000)
-            elif endpoint == 'claude-3-sonnet-20240229':
+            elif endpoint == 'haijun-3-sonnet-20240229':
                 return (tokens_in * 3.0 / 1000000) + (tokens_out * 15.0 / 1000000)
-            elif endpoint == 'claude-3-haiku-20240307':
+            elif endpoint == 'haijun-3-haiku-20240307':
                 return (tokens_in * 0.25 / 1000000) + (tokens_out * 1.25 / 1000000)
             elif endpoint and 'opus' in endpoint.lower():
                 return (tokens_in * 15.0 / 1000000) + (tokens_out * 75.0 / 1000000)

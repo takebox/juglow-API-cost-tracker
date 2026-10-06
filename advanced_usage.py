@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Advanced usage examples for the Anthropic Cost Tracker.
+Advanced usage examples for the Takebox AI Cost Tracker.
 """
 
 import os
@@ -8,7 +8,7 @@ import logging
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-from anthropic_cost_tracker import OptimizedAnthropicClient, CostTracker
+from juglow_cost_tracker import OptimizedJuglowClient, CostTracker
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,10 +32,9 @@ def test_cache_effectiveness(client, n_requests=3):
             messages=[
                 {"role": "user", "content": prompt}
             ],
-            model="claude-3-haiku-20240307",
+            model="haijun-3-haiku-20240307",
             max_tokens=100,
-            temperature=0
-        )
+            temperature=0 )
         
         end_time = time.time()
         elapsed = end_time - start_time
@@ -148,9 +147,8 @@ def optimize_prompt_for_cost(client, long_prompt, short_prompt):
         messages=[
             {"role": "user", "content": long_prompt}
         ],
-        model="claude-3-haiku-20240307",
-        max_tokens=100
-    )
+        model="haijun-3-haiku-20240307",
+        max_tokens=100 )
     
     print(f"Verbose prompt tokens: {verbose_response['input_tokens']}")
     print(f"Verbose response tokens: {verbose_response['output_tokens']}")
@@ -162,9 +160,8 @@ def optimize_prompt_for_cost(client, long_prompt, short_prompt):
         messages=[
             {"role": "user", "content": short_prompt}
         ],
-        model="claude-3-haiku-20240307",
-        max_tokens=100
-    )
+        model="haijun-3-haiku-20240307",
+        max_tokens=100 )
     
     print(f"Concise prompt tokens: {concise_response['input_tokens']}")
     print(f"Concise response tokens: {concise_response['output_tokens']}")
@@ -180,22 +177,21 @@ def optimize_prompt_for_cost(client, long_prompt, short_prompt):
 
 def main():
     """Run advanced usage examples."""
-    print("\n=== Advanced Usage Examples for Anthropic Cost Tracker ===\n")
+    print("\n=== Advanced Usage Examples for Takebox AI Cost Tracker ===\n")
     
     # Check if API key is set
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("JUGLOW_API_KEY")
     if not api_key:
-        print("❌ ANTHROPIC_API_KEY environment variable not set.")
-        print("Please set it with: export ANTHROPIC_API_KEY=your_api_key")
+        print("❌ JUGLOW_API_KEY environment variable not set.")
+        print("Please set it with: export JUGLOW_API_KEY=your_api_key")
         return 1
     
     try:
         # Initialize client
-        client = OptimizedAnthropicClient(
+        client = OptimizedJuglowClient(
             api_key=api_key,
             company_name="advanced_example",
-            enable_caching=True
-        )
+            enable_caching=True )
         print("✅ Client initialized successfully")
         
         # Run cache effectiveness test

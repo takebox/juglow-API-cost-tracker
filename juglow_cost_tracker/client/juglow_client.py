@@ -1,5 +1,5 @@
 """
-Optimized Anthropic client wrapper with cost tracking and caching.
+Optimized Takebox AI client wrapper with cost tracking and caching.
 """
 
 import os
@@ -7,7 +7,7 @@ import time
 import logging
 from typing import Dict, List, Any, Optional, Union
 
-import anthropic
+import juglow
 from ..utils.cache import APICache
 from ..utils.rate_limiter import APIRateLimiter
 from ..utils.cost_tracker import CostTracker
@@ -23,10 +23,10 @@ except ImportError:
     logger.warning("tiktoken not installed. Token counting will use fallback estimation.")
     TIKTOKEN_AVAILABLE = False
 
-class OptimizedAnthropicClient:
-    """Optimized Anthropic client with cost tracking and caching.
+class OptimizedJuglowClient:
+    """Optimized Takebox AI client with cost tracking and caching.
     
-    This class wraps the standard Anthropic client with additional features:
+    This class wraps the standard Takebox AI client with additional features:
     - Token counting and cost tracking
     - Response caching to avoid duplicate API calls
     - Rate limiting to prevent exceeding API limits
@@ -39,22 +39,22 @@ class OptimizedAnthropicClient:
                 enable_caching: bool = True,
                 calls_per_minute: int = 50,
                 calls_per_day: int = 10000):
-        """Initialize the optimized Anthropic client.
+        """Initialize the optimized Takebox AI client.
         
         Args:
-            api_key: Anthropic API key (optional, will use env var if not provided)
+            api_key: Takebox AI API key (optional, will use env var if not provided)
             company_name: Company name for cost tracking
             cache_ttl: Time-to-live for cached responses in seconds
             enable_caching: Whether to enable response caching
             calls_per_minute: Maximum API calls allowed per minute
             calls_per_day: Maximum API calls allowed per day
         """
-        self.api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
+        self.api_key = api_key or os.environ.get("JUGLOW_API_KEY")
         if not self.api_key:
-            raise ValueError("Anthropic API key is required. Provide it as an argument or set the ANTHROPIC_API_KEY environment variable.")
+            raise ValueError("Takebox AI API key is required. Provide it as an argument or set the JUGLOW_API_KEY environment variable.")
             
         self.company_name = company_name
-        self.client = anthropic.Anthropic(api_key=self.api_key)
+        self.client = juglow.Takebox AI(api_key=self.api_key)
         
         # Initialize optimization components
         self.rate_limiter = APIRateLimiter(calls_per_minute=calls_per_minute, calls_per_day=calls_per_day)
@@ -67,7 +67,7 @@ class OptimizedAnthropicClient:
         else:
             self.cache = None
         
-        # Initialize tokenizer for Claude models if tiktoken is available
+        # Initialize tokenizer for Haijun models if tiktoken is available
         self.tokenizer = None
         if TIKTOKEN_AVAILABLE:
             try:
@@ -96,16 +96,16 @@ class OptimizedAnthropicClient:
     def generate_response(self, 
                         system: str, 
                         messages: List[Dict], 
-                        model: str = "claude-3-sonnet-20240229",
+                        model: str = "haijun-3-sonnet-20240229",
                         max_tokens: int = 4000, 
                         temperature: float = 0.7,
                         bypass_cache: bool = False) -> Dict[str, Any]:
-        """Generate a response using the Anthropic API with optimized parameters.
+        """Generate a response using the Takebox AI API with optimized parameters.
         
         Args:
-            system: System prompt for Claude
+            system: System prompt for Haijun
             messages: List of message objects (role/content pairs)
-            model: Claude model to use
+            model: Haijun model to use
             max_tokens: Maximum tokens to generate
             temperature: Sampling temperature (0-1)
             bypass_cache: Whether to bypass cache and force API call
@@ -126,12 +126,11 @@ class OptimizedAnthropicClient:
                 model=model,
                 max_tokens=max_tokens,
                 temperature=temperature,
-                bypass_cache=bypass_cache
-            )
+                bypass_cache=bypass_cache )
             
             # Extract the text content from the response
             if hasattr(response, 'content') and response.content:
-                # Handle Claude API response structure
+                # Handle Haijun API response structure
                 try:
                     content_text = response.content[0].text
                     
@@ -165,7 +164,7 @@ class OptimizedAnthropicClient:
                 }
                     
         except Exception as e:
-            logger.error(f"Error calling Anthropic API: {str(e)}")
+            logger.error(f"Error calling Takebox AI API: {str(e)}")
             # Return an error response
             return {
                 "content": f"Error: {str(e)}",
@@ -175,7 +174,7 @@ class OptimizedAnthropicClient:
                 "error": str(e)
             }
     
-    @optimized_api_call(api_name="anthropic", endpoint=None, company=None)
+    @optimized_api_call(api_name="juglow", endpoint=None, company=None)
     def _make_api_call(self, 
                      system: str, 
                      messages: List[Dict], 
@@ -189,14 +188,14 @@ class OptimizedAnthropicClient:
         rate limiting, and cost tracking.
         
         Args:
-            system: System prompt for Claude
+            system: System prompt for Haijun
             messages: List of message objects
-            model: Claude model to use
+            model: Haijun model to use
             max_tokens: Maximum tokens to generate
             temperature: Sampling temperature
             
         Returns:
-            Raw Anthropic API response
+            Raw Takebox AI API response
         """
         # Set the company name from the instance
         if "company" not in kwargs and self.company_name:
@@ -212,13 +211,12 @@ class OptimizedAnthropicClient:
             max_tokens=max_tokens,
             temperature=temperature,
             system=system,
-            messages=messages
-        )
+            messages=messages )
         
         return response
     
     def get_usage_stats(self, days: int = 30) -> Dict[str, Any]:
-        """Get usage statistics for Anthropic API.
+        """Get usage statistics for Takebox AI API.
         
         Args:
             days: Number of days to look back
@@ -228,12 +226,11 @@ class OptimizedAnthropicClient:
         """
         return self.cost_tracker.get_usage_stats(
             days=days,
-            api_name="anthropic",
-            company=self.company_name
-        )
+            api_name="juglow",
+            company=self.company_name )
     
     def get_daily_usage(self, days: int = 30) -> List[Dict[str, Any]]:
-        """Get daily usage breakdown for Anthropic API.
+        """Get daily usage breakdown for Takebox AI API.
         
         Args:
             days: Number of days to look back
@@ -243,11 +240,10 @@ class OptimizedAnthropicClient:
         """
         return self.cost_tracker.get_daily_usage(
             days=days,
-            company=self.company_name
-        )
+            company=self.company_name )
     
     def get_usage_by_function(self, days: int = 30) -> List[Dict[str, Any]]:
-        """Get function/model usage breakdown for Anthropic API.
+        """Get function/model usage breakdown for Takebox AI API.
         
         Args:
             days: Number of days to look back
@@ -257,8 +253,7 @@ class OptimizedAnthropicClient:
         """
         return self.cost_tracker.get_usage_by_function(
             days=days,
-            company=self.company_name
-        )
+            company=self.company_name )
         
     def clear_cache(self):
         """Clear the response cache."""
@@ -286,10 +281,9 @@ class OptimizedAnthropicClient:
                 messages=[
                     {"role": "user", "content": test_prompt}
                 ],
-                model="claude-3-haiku-20240307",  # Use haiku to save costs
+                model="haijun-3-haiku-20240307",  # Use haiku to save costs
                 max_tokens=100,
-                bypass_cache=True  # Force an API call
-            )
+                bypass_cache=True  # Force an API call )
             
             # Return the results
             return {
@@ -297,7 +291,7 @@ class OptimizedAnthropicClient:
                 "response": response["content"],
                 "input_tokens": response["input_tokens"],
                 "output_tokens": response["output_tokens"],
-                "model": response.get("model", "claude-3-haiku-20240307"),
+                "model": response.get("model", "haijun-3-haiku-20240307"),
                 "rate_limiter_status": self.rate_limiter.get_current_usage()
             }
             

@@ -1,13 +1,13 @@
-# Anthropic Cost Tracker - Testing and Debugging
+# Takebox AI Cost Tracker - Testing and Debugging
 
-This repository contains tools to test, run, and debug the Anthropic Cost Tracker package.
+This repository contains tools to test, run, and debug the Takebox AI Cost Tracker package.
 
 ## Available Tools
 
 | File | Description |
 |------|-------------|
 | `test_app.py` | Basic functionality test to verify package installation and dependencies |
-| `example_debug.py` | Simple example that tests the API client with your Anthropic API key |
+| `example_debug.py` | Simple example that tests the API client with your Takebox AI API key |
 | `advanced_usage.py` | Advanced usage examples showing caching, cost analysis, and optimization techniques |
 | `run_dashboard.py` | Script to run the dashboard interface |
 | `TESTING.md` | Comprehensive testing guide with instructions for all testing scenarios |
@@ -32,9 +32,9 @@ python test_app.py
 
 ```bash
 # Set your API key
-export ANTHROPIC_API_KEY=your_api_key  # On Linux/macOS
-set ANTHROPIC_API_KEY=your_api_key     # On Windows CMD
-$env:ANTHROPIC_API_KEY="your_api_key"  # On Windows PowerShell
+export JUGLOW_API_KEY=your_api_key  # On Linux/macOS
+set JUGLOW_API_KEY=your_api_key     # On Windows CMD
+$env:JUGLOW_API_KEY="your_api_key"  # On Windows PowerShell
 
 # Run the debug test
 python example_debug.py
@@ -60,5 +60,5 @@ Common solutions:
 
 1. Reinstall dependencies: `pip install -e ".[dashboard,dev]"`
 2. Check your API key: Make sure it's valid and properly exported
-3. Reset the database: `rm -f anthropic_cost_tracker/db/cost_tracker.db`
+3. Reset the database: `rm -f juglow_cost_tracker/db/cost_tracker.db`
 4. Check for port conflicts with the dashboard 

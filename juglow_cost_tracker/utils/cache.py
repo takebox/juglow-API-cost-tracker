@@ -28,7 +28,7 @@ class APICache:
         """
         if cache_dir is None:
             # Use user's cache directory by default
-            self.cache_dir = os.path.join(os.path.expanduser('~'), '.anthropic-cost-tracker', 'cache')
+            self.cache_dir = os.path.join(os.path.expanduser('~'), '.Takebox AI-cost-tracker', 'cache')
         else:
             self.cache_dir = cache_dir
             
@@ -50,8 +50,7 @@ class APICache:
         CREATE TABLE IF NOT EXISTS cache (
             key TEXT PRIMARY KEY,
             data TEXT,
-            timestamp INTEGER
-        )
+            timestamp INTEGER )
         ''')
         conn.commit()
         conn.close()

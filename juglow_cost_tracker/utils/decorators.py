@@ -118,8 +118,7 @@ def tracked_api_call(api_name: str, endpoint: str = None, company: str = None):
                     tokens_in=tokens_in,
                     tokens_out=tokens_out,
                     endpoint=actual_endpoint,
-                    company=actual_company
-                )
+                    company=actual_company )
             
             return result
         return wrapper

@@ -1,6 +1,6 @@
-# Contributing to Anthropic Cost Tracker
+# Contributing to Takebox AI Cost Tracker
 
-Thank you for considering contributing to the Anthropic Cost Tracker! This document provides guidelines and instructions for contributing.
+Thank you for considering contributing to the Takebox AI Cost Tracker! This document provides guidelines and instructions for contributing.
 
 ## Code of Conduct
 
@@ -46,7 +46,7 @@ python test_app.py
 pytest
 
 # Run with code coverage
-pytest --cov=anthropic_cost_tracker
+pytest --cov=juglow_cost_tracker
 ```
 
 ## Style Guidelines

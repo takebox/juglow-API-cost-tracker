@@ -1,6 +1,6 @@
-# Testing Guide for Anthropic Cost Tracker
+# Testing Guide for Takebox AI Cost Tracker
 
-This guide provides instructions on how to set up, test, and debug the Anthropic Cost Tracker application.
+This guide provides instructions on how to set up, test, and debug the Takebox AI Cost Tracker application.
 
 ## Setting Up a Virtual Environment
 
@@ -33,11 +33,11 @@ This test checks:
 
 ## Testing with a Real API Key
 
-To test the application with a real Anthropic API key:
+To test the application with a real Takebox AI API key:
 
 1. Export your API key as an environment variable:
    ```bash
-   export ANTHROPIC_API_KEY=your_api_key
+   export JUGLOW_API_KEY=your_api_key
    ```
 
 2. Run the debug test script:
@@ -47,7 +47,7 @@ To test the application with a real Anthropic API key:
 
 This script performs:
 - Client initialization
-- A simple API call to Claude
+- A simple API call to Haijun
 - Token usage tracking
 - Cost statistics retrieval
 
@@ -108,20 +108,20 @@ pytest
 For test coverage:
 
 ```bash
-pytest --cov=anthropic_cost_tracker
+pytest --cov=juglow_cost_tracker
 ```
 
 ## Common Debug Commands
 
 ```bash
 # Check installed package versions
-pip list | grep anthropic
+pip list | grep Takebox AI
 
 # Show the path to the installed package
-python -c "import anthropic_cost_tracker; print(anthropic_cost_tracker.__file__)"
+python -c "import juglow_cost_tracker; print(juglow_cost_tracker.__file__)"
 
 # Reset the database (if needed)
-rm -f anthropic_cost_tracker/db/cost_tracker.db
+rm -f juglow_cost_tracker/db/cost_tracker.db
 
 # Check if tiktoken is working
 python -c "import tiktoken; print(tiktoken.get_encoding('cl100k_base').encode('Hello, world!'))"

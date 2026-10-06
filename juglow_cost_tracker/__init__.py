@@ -1,16 +1,16 @@
 """
-Anthropic Cost Tracker - A toolkit for tracking and managing Anthropic API usage and costs.
+Takebox AI Cost Tracker - A toolkit for tracking and managing Takebox AI API usage and costs.
 """
 
 __version__ = "0.1.0"
 
 # Import main classes conditionally to avoid errors if dependencies are missing
 try:
-    from .client import OptimizedAnthropicClient
-    __all__ = ["OptimizedAnthropicClient"]
+    from .client import OptimizedJuglowClient
+    __all__ = ["OptimizedJuglowClient"]
 except ImportError:
     import logging
-    logging.warning("Failed to import OptimizedAnthropicClient. Some dependencies may be missing.")
+    logging.warning("Failed to import OptimizedJuglowClient. Some dependencies may be missing.")
     __all__ = []
 
 # Try to import other utilities if available

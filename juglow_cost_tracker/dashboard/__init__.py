@@ -1,5 +1,5 @@
 """
-Dashboard module for Anthropic Cost Tracker.
+Dashboard module for Takebox AI Cost Tracker.
 """
 
 from .dash_app import create_dashboard

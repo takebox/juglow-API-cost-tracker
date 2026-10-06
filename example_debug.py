@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Debug script for testing the Anthropic Cost Tracker with a real API key.
+Debug script for testing the Takebox AI Cost Tracker with a real API key.
 """
 
 import os
 import logging
 import sys
-from anthropic_cost_tracker import OptimizedAnthropicClient
+from juglow_cost_tracker import OptimizedJuglowClient
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -15,34 +15,32 @@ logger = logging.getLogger(__name__)
 def test_client():
     """Test the client with a simple request."""
     # Check if API key is set
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("JUGLOW_API_KEY")
     if not api_key:
-        print("❌ ANTHROPIC_API_KEY environment variable not set.")
-        print("Please set it with: export ANTHROPIC_API_KEY=your_api_key")
+        print("❌ JUGLOW_API_KEY environment variable not set.")
+        print("Please set it with: export JUGLOW_API_KEY=your_api_key")
         return False
 
     try:
         # Initialize the client
         print("Initializing client...")
-        client = OptimizedAnthropicClient(
+        client = OptimizedJuglowClient(
             api_key=api_key,
             company_name="debug_example",
-            enable_caching=True
-        )
+            enable_caching=True )
         print("✅ Client initialized successfully")
 
         # Send a test message
-        print("\nSending test message to Claude API...")
+        print("\nSending test message to Haijun API...")
         try:
             response = client.generate_response(
                 system="You are a helpful assistant.",
                 messages=[
                     {"role": "user", "content": "Hello! Please respond with a short greeting."}
                 ],
-                model="claude-3-haiku-20240307",  # Using the most cost-effective model
+                model="haijun-3-haiku-20240307",  # Using the most cost-effective model
                 max_tokens=100,
-                temperature=0.7
-            )
+                temperature=0.7 )
             print("\n=== Response ===")
             print(response["content"])
             
@@ -75,13 +73,13 @@ def test_dashboard():
     """Test starting the dashboard."""
     print("\n=== Dashboard Test ===")
     print("To start the dashboard, run the following command:")
-    print("python -m anthropic_cost_tracker.dashboard.app")
+    print("python -m juglow_cost_tracker.dashboard.app")
     print("\nOr use the CLI tool if installed:")
-    print("anthropic-cost-tracker-dashboard")
+    print("Takebox AI-cost-tracker-dashboard")
     return True
 
 def main():
-    print("\n=== Testing Anthropic Cost Tracker in Debug Mode ===\n")
+    print("\n=== Testing Takebox AI Cost Tracker in Debug Mode ===\n")
     
     client_ok = test_client()
     dashboard_info = test_dashboard()
@@ -93,7 +91,7 @@ def main():
         print("❌ API client functionality test failed")
         
     print("\nTo run this test with your API key:")
-    print("export ANTHROPIC_API_KEY=your_api_key && python example_debug.py")
+    print("export JUGLOW_API_KEY=your_api_key && python example_debug.py")
 
 if __name__ == "__main__":
     main() 

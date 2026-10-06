@@ -1,5 +1,5 @@
 """
-API module for Anthropic Cost Tracker.
+API module for Takebox AI Cost Tracker.
 """
 
 from .flask_api import create_app

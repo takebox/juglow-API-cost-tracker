@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script for the Anthropic Cost Tracker package.
+Test script for the Takebox AI Cost Tracker package.
 This script will test the basic functionality of the package.
 """
 
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 def test_imports():
     """Test if all required packages are available."""
     missing_packages = []
-    packages = ["anthropic", "flask"]
+    packages = ["juglow", "flask"]
     
     for package in packages:
         try:
@@ -71,12 +71,12 @@ def test_dashboard():
 def test_module_structure():
     """Test the module structure."""
     try:
-        import anthropic_cost_tracker
-        print("✅ Module anthropic_cost_tracker is importable")
+        import juglow_cost_tracker
+        print("✅ Module juglow_cost_tracker is importable")
         
         # Check for expected directories
         expected_dirs = ["client", "utils", "dashboard", "db", "api"]
-        module_path = os.path.dirname(anthropic_cost_tracker.__file__)
+        module_path = os.path.dirname(juglow_cost_tracker.__file__)
         
         for dir_name in expected_dirs:
             if os.path.isdir(os.path.join(module_path, dir_name)):
@@ -86,11 +86,11 @@ def test_module_structure():
                 
         return True
     except ImportError:
-        print("❌ Module anthropic_cost_tracker cannot be imported")
+        print("❌ Module juglow_cost_tracker cannot be imported")
         return False
 
 def main():
-    print("\n=== Testing Anthropic Cost Tracker ===\n")
+    print("\n=== Testing Takebox AI Cost Tracker ===\n")
 
     # Run tests
     print("\n--- Testing Required Packages ---")
@@ -108,8 +108,8 @@ def main():
     else:
         print("❌ Some tests failed. Please check the output above for details.")
     
-    print("\nTo run the application with an actual API key, set the ANTHROPIC_API_KEY environment variable.")
-    print("Then initialize the client with: client = OptimizedAnthropicClient(company_name='my_app')")
+    print("\nTo run the application with an actual API key, set the JUGLOW_API_KEY environment variable.")
+    print("Then initialize the client with: client = OptimizedJuglowClient(company_name='my_app')")
 
 if __name__ == "__main__":
     main() 

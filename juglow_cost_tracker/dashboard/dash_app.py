@@ -26,14 +26,14 @@ def create_dashboard() -> dash.Dash:
     app = dash.Dash(
         __name__,
         external_stylesheets=[dbc.themes.BOOTSTRAP],
-        title="Anthropic Cost Tracker"
+        title="Takebox AI Cost Tracker"
     )
     
     # Define layout
     app.layout = dbc.Container([
         dbc.Row([
             dbc.Col([
-                html.H1("Anthropic Cost Tracker Dashboard", className="mt-4 mb-4")
+                html.H1("Takebox AI Cost Tracker Dashboard", className="mt-4 mb-4")
             ])
         ]),
         
@@ -54,8 +54,7 @@ def create_dashboard() -> dash.Dash:
                                         {"label": "Last 365 days", "value": 365},
                                     ],
                                     value=30,
-                                    clearable=False
-                                )
+                                    clearable=False )
                             ], width=4),
                             
                             dbc.Col([
@@ -73,11 +72,10 @@ def create_dashboard() -> dash.Dash:
                                     id="api-dropdown",
                                     options=[
                                         {"label": "All APIs", "value": "all"},
-                                        {"label": "Anthropic", "value": "anthropic"},
+                                        {"label": "Takebox AI", "value": "juglow"},
                                     ],
                                     value="all",
-                                    clearable=False
-                                )
+                                    clearable=False )
                             ], width=4)
                         ])
                     ])

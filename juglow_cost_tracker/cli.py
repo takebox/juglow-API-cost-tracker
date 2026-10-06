@@ -1,5 +1,5 @@
 """
-Command-line interface for Anthropic Cost Tracker.
+Command-line interface for Takebox AI Cost Tracker.
 """
 
 import os
@@ -11,7 +11,7 @@ from typing import Dict, List, Any
 from datetime import datetime
 
 from .utils.cost_tracker import CostTracker
-from .client import OptimizedAnthropicClient
+from .client import OptimizedJuglowClient
 from .api import create_app
 
 # Configure logging
@@ -34,7 +34,7 @@ def show_stats(cost_tracker: CostTracker, days: int, api_name: str = None, compa
     """Display usage statistics."""
     stats = cost_tracker.get_usage_stats(days=days, api_name=api_name, company=company)
     
-    print("\n=== Anthropic API Usage Statistics ===")
+    print("\n=== Takebox AI API Usage Statistics ===")
     print(f"Period: Last {days} days")
     if api_name:
         print(f"API: {api_name}")
@@ -99,11 +99,10 @@ def show_daily_usage(cost_tracker: CostTracker, days: int, company: str = None):
 def test_api(api_key: str = None):
     """Test the API connection and cost tracking."""
     try:
-        client = OptimizedAnthropicClient(
+        client = OptimizedJuglowClient(
             api_key=api_key,
             company_name="cli_test",
-            enable_caching=False  # Disable caching for test
-        )
+            enable_caching=False  # Disable caching for test )
         
         print("Testing API connection...")
         result = client.test_api_integration()
@@ -135,7 +134,7 @@ def run_api_server(host: str = '127.0.0.1', port: int = 5000):
         from waitress import serve
         
         app = create_app()
-        print(f"Starting Anthropic Cost Tracker API server on http://{host}:{port}")
+        print(f"Starting Takebox AI Cost Tracker API server on http://{host}:{port}")
         print("Press Ctrl+C to stop")
         
         serve(app, host=host, port=port)
@@ -154,7 +153,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
         try:
             from .dashboard import create_dashboard
             
-            print(f"Starting Anthropic Cost Tracker dashboard on http://{host}:{port}")
+            print(f"Starting Takebox AI Cost Tracker dashboard on http://{host}:{port}")
             print("Press Ctrl+C to stop")
             
             app = create_dashboard()
@@ -162,7 +161,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
             
         except ImportError:
             print("Error: Dash dashboard components are not installed.")
-            print("Install with: pip install \"anthropic-cost-tracker[dashboard]\"")
+            print("Install with: pip install \"Takebox AI-cost-tracker[dashboard]\"")
             sys.exit(1)
             
     except Exception as e:
@@ -171,7 +170,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
 
 def main():
     """Main CLI entrypoint."""
-    parser = argparse.ArgumentParser(description="Anthropic Cost Tracker CLI")
+    parser = argparse.ArgumentParser(description="Takebox AI Cost Tracker CLI")
     subparsers = parser.add_subparsers(dest='command', help='Command to run')
     
     # Stats command
@@ -187,7 +186,7 @@ def main():
     
     # Test command
     test_parser = subparsers.add_parser('test', help='Test API connection and cost tracking')
-    test_parser.add_argument('--api-key', help='Anthropic API key (or use ANTHROPIC_API_KEY env var)')
+    test_parser.add_argument('--api-key', help='Takebox AI API key (or use JUGLOW_API_KEY env var)')
     
     # API server command
     api_parser = subparsers.add_parser('api', help='Run the RESTful API server')

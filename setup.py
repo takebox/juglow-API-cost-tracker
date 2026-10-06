@@ -4,18 +4,18 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="anthropic-cost-tracker",
+    name="Takebox AI-cost-tracker",
     version="0.1.0",
-    author="Anthropic Cost Tracker Team",
+    author="Takebox AI Cost Tracker Team",
     author_email="info@example.com",
-    description="A toolkit for tracking and managing Anthropic API usage and costs",
+    description="A toolkit for tracking and managing Takebox AI API usage and costs",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/anthropic-cost-tracker",
+    url="",
     project_urls={
-        "Bug Tracker": "https://github.com/yourusername/anthropic-cost-tracker/issues",
-        "Documentation": "https://anthropic-cost-tracker.readthedocs.io/",
-        "Source Code": "https://github.com/yourusername/anthropic-cost-tracker",
+        "Bug Tracker": "",
+        "Documentation": "",
+        "Source Code": "",
     },
     packages=find_packages(),
     classifiers=[
@@ -29,7 +29,7 @@ setup(
     ],
     python_requires=">=3.7",
     install_requires=[
-        "anthropic>=0.5.0",
+        "juglow>=0.5.0",
         "tiktoken>=0.3.0",
         "flask>=2.0.0",
         "flask-cors>=3.0.10",
@@ -52,8 +52,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'anthropic-cost-tracker=anthropic_cost_tracker.cli:main',
-            'anthropic-dashboard=anthropic_cost_tracker.cli:run_dashboard',
+            'Takebox AI-cost-tracker=juglow_cost_tracker.cli:main',
+            'Takebox AI-dashboard=juglow_cost_tracker.cli:run_dashboard',
         ],
     },
 ) 
