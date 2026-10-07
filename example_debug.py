@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Debug script for testing the Takebox AI Cost Tracker with a real API key.
+Debug script for testing the Juglow Cost Tracker with a real API key.
 """
 
 import os
@@ -75,11 +75,11 @@ def test_dashboard():
     print("To start the dashboard, run the following command:")
     print("python -m juglow_cost_tracker.dashboard.app")
     print("\nOr use the CLI tool if installed:")
-    print("Takebox AI-cost-tracker-dashboard")
+    print("Juglow-cost-tracker-dashboard")
     return True
 
 def main():
-    print("\n=== Testing Takebox AI Cost Tracker in Debug Mode ===\n")
+    print("\n=== Testing Juglow Cost Tracker in Debug Mode ===\n")
     
     client_ok = test_client()
     dashboard_info = test_dashboard()

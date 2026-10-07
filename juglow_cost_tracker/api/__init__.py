@@ -1,5 +1,5 @@
 """
-API module for Takebox AI Cost Tracker.
+API module for Juglow Cost Tracker.
 """
 
 from .flask_api import create_app

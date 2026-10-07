@@ -28,7 +28,7 @@ class APICache:
         """
         if cache_dir is None:
             # Use user's cache directory by default
-            self.cache_dir = os.path.join(os.path.expanduser('~'), '.Takebox AI-cost-tracker', 'cache')
+            self.cache_dir = os.path.join(os.path.expanduser('~'), '.Juglow-cost-tracker', 'cache')
         else:
             self.cache_dir = cache_dir
             

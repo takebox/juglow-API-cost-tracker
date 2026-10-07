@@ -1,5 +1,5 @@
 """
-Optimized Takebox AI client wrapper with cost tracking and caching.
+Optimized Juglow client wrapper with cost tracking and caching.
 """
 
 import os
@@ -24,9 +24,9 @@ except ImportError:
     TIKTOKEN_AVAILABLE = False
 
 class OptimizedJuglowClient:
-    """Optimized Takebox AI client with cost tracking and caching.
+    """Optimized Juglow client with cost tracking and caching.
     
-    This class wraps the standard Takebox AI client with additional features:
+    This class wraps the standard Juglow client with additional features:
     - Token counting and cost tracking
     - Response caching to avoid duplicate API calls
     - Rate limiting to prevent exceeding API limits
@@ -39,10 +39,10 @@ class OptimizedJuglowClient:
                 enable_caching: bool = True,
                 calls_per_minute: int = 50,
                 calls_per_day: int = 10000):
-        """Initialize the optimized Takebox AI client.
+        """Initialize the optimized Juglow client.
         
         Args:
-            api_key: Takebox AI API key (optional, will use env var if not provided)
+            api_key: Juglow API key (optional, will use env var if not provided)
             company_name: Company name for cost tracking
             cache_ttl: Time-to-live for cached responses in seconds
             enable_caching: Whether to enable response caching
@@ -51,10 +51,10 @@ class OptimizedJuglowClient:
         """
         self.api_key = api_key or os.environ.get("JUGLOW_API_KEY")
         if not self.api_key:
-            raise ValueError("Takebox AI API key is required. Provide it as an argument or set the JUGLOW_API_KEY environment variable.")
+            raise ValueError("Juglow API key is required. Provide it as an argument or set the JUGLOW_API_KEY environment variable.")
             
         self.company_name = company_name
-        self.client = juglow.Takebox AI(api_key=self.api_key)
+        self.client = juglow.Juglow(api_key=self.api_key)
         
         # Initialize optimization components
         self.rate_limiter = APIRateLimiter(calls_per_minute=calls_per_minute, calls_per_day=calls_per_day)
@@ -100,7 +100,7 @@ class OptimizedJuglowClient:
                         max_tokens: int = 4000, 
                         temperature: float = 0.7,
                         bypass_cache: bool = False) -> Dict[str, Any]:
-        """Generate a response using the Takebox AI API with optimized parameters.
+        """Generate a response using the Juglow API with optimized parameters.
         
         Args:
             system: System prompt for Haijun
@@ -164,7 +164,7 @@ class OptimizedJuglowClient:
                 }
                     
         except Exception as e:
-            logger.error(f"Error calling Takebox AI API: {str(e)}")
+            logger.error(f"Error calling Juglow API: {str(e)}")
             # Return an error response
             return {
                 "content": f"Error: {str(e)}",
@@ -195,7 +195,7 @@ class OptimizedJuglowClient:
             temperature: Sampling temperature
             
         Returns:
-            Raw Takebox AI API response
+            Raw Juglow API response
         """
         # Set the company name from the instance
         if "company" not in kwargs and self.company_name:
@@ -216,7 +216,7 @@ class OptimizedJuglowClient:
         return response
     
     def get_usage_stats(self, days: int = 30) -> Dict[str, Any]:
-        """Get usage statistics for Takebox AI API.
+        """Get usage statistics for Juglow API.
         
         Args:
             days: Number of days to look back
@@ -230,7 +230,7 @@ class OptimizedJuglowClient:
             company=self.company_name )
     
     def get_daily_usage(self, days: int = 30) -> List[Dict[str, Any]]:
-        """Get daily usage breakdown for Takebox AI API.
+        """Get daily usage breakdown for Juglow API.
         
         Args:
             days: Number of days to look back
@@ -243,7 +243,7 @@ class OptimizedJuglowClient:
             company=self.company_name )
     
     def get_usage_by_function(self, days: int = 30) -> List[Dict[str, Any]]:
-        """Get function/model usage breakdown for Takebox AI API.
+        """Get function/model usage breakdown for Juglow API.
         
         Args:
             days: Number of days to look back

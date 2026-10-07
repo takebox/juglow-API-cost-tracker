@@ -1,5 +1,5 @@
 """
-Flask API for the Takebox AI Cost Tracker.
+Flask API for the Juglow Cost Tracker.
 """
 
 import os
@@ -96,7 +96,7 @@ def create_app() -> Flask:
     def manage_api_budget():
         """Get or update API budget settings."""
         # Get the config file path
-        config_dir = os.path.join(os.path.expanduser('~'), '.Takebox AI-cost-tracker')
+        config_dir = os.path.join(os.path.expanduser('~'), '.Juglow-cost-tracker')
         os.makedirs(config_dir, exist_ok=True)
         budget_file = os.path.join(config_dir, 'budget_settings.json')
         

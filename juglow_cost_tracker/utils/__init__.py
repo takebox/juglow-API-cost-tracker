@@ -1,3 +1,3 @@
 """
-Utility modules for Takebox AI Cost Tracker.
+Utility modules for Juglow Cost Tracker.
 """ 

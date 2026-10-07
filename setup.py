@@ -4,11 +4,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="Takebox AI-cost-tracker",
+    name="Juglow-cost-tracker",
     version="0.1.0",
-    author="Takebox AI Cost Tracker Team",
+    author="Juglow Cost Tracker Team",
     author_email="info@example.com",
-    description="A toolkit for tracking and managing Takebox AI API usage and costs",
+    description="A toolkit for tracking and managing Juglow API usage and costs",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="",
@@ -52,8 +52,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'Takebox AI-cost-tracker=juglow_cost_tracker.cli:main',
-            'Takebox AI-dashboard=juglow_cost_tracker.cli:run_dashboard',
+            'Juglow-cost-tracker=juglow_cost_tracker.cli:main',
+            'Juglow-dashboard=juglow_cost_tracker.cli:run_dashboard',
         ],
     },
 ) 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Basic usage example for the Takebox AI Cost Tracker.
+Basic usage example for the Juglow Cost Tracker.
 """
 
 import os
@@ -16,7 +16,7 @@ def main():
         company_name="example_app",  # Optional: helps organize costs by project
         enable_caching=True  # Optional: enables response caching )
     
-    # Generate a response (just like you would with the standard Takebox AI client)
+    # Generate a response (just like you would with the standard Juglow client)
     response = client.generate_response(
         system="You are a helpful assistant.",
         messages=[
@@ -45,9 +45,9 @@ def main():
     print(f"Total API calls: {stats['total_calls']}")
     
     # You can also get usage by model/endpoint
-    if stats['by_api'].get('Takebox AI', {}).get('by_endpoint'):
+    if stats['by_api'].get('Juglow', {}).get('by_endpoint'):
         print("\n=== Usage by Model ===")
-        for model, model_stats in stats['by_api']['Takebox AI']['by_endpoint'].items():
+        for model, model_stats in stats['by_api']['Juglow']['by_endpoint'].items():
             print(f"{model}: ${model_stats['cost']:.4f} ({model_stats['calls']} calls)")
 
 if __name__ == "__main__":

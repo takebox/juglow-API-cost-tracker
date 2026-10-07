@@ -1,5 +1,5 @@
 """
-Dashboard module for Takebox AI Cost Tracker.
+Dashboard module for Juglow Cost Tracker.
 """
 
 from .dash_app import create_dashboard

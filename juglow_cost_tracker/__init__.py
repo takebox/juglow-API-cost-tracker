@@ -1,5 +1,5 @@
 """
-Takebox AI Cost Tracker - A toolkit for tracking and managing Takebox AI API usage and costs.
+Juglow Cost Tracker - A toolkit for tracking and managing Juglow API usage and costs.
 """
 
 __version__ = "0.1.0"

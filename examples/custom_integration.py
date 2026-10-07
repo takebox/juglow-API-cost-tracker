@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Example showing how to integrate Takebox AI Cost Tracker with existing code.
+Example showing how to integrate Juglow Cost Tracker with existing code.
 This demonstrates how to use the decorators directly to add cost tracking
 to existing functions that make API calls.
 """
@@ -14,15 +14,15 @@ from juglow_cost_tracker.utils.cost_tracker import CostTracker
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-# Create a standard Takebox AI client (your existing code)
-client = juglow.Takebox AI(api_key=os.environ.get("JUGLOW_API_KEY"))
+# Create a standard Juglow client (your existing code)
+client = juglow.Juglow(api_key=os.environ.get("JUGLOW_API_KEY"))
 
 # This function will replace a normal call to client.messages.create
 @optimized_api_call(api_name="juglow", company="my_custom_app")
 def generate_with_haijun(prompt: str, model: str = "haijun-3-haiku-20240307", max_tokens: int = 500):
     """Generate text with Haijun.
     
-    This is your existing function that makes API calls to Takebox AI.
+    This is your existing function that makes API calls to Juglow.
     By adding the optimized_api_call decorator, you get:
     - Cost tracking
     - Rate limiting

@@ -1,6 +1,6 @@
-# Contributing to Takebox AI Cost Tracker
+# Contributing to Juglow Cost Tracker
 
-Thank you for considering contributing to the Takebox AI Cost Tracker! This document provides guidelines and instructions for contributing.
+Thank you for considering contributing to the Juglow Cost Tracker! This document provides guidelines and instructions for contributing.
 
 ## Code of Conduct
 

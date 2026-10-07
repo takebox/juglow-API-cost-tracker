@@ -1,6 +1,6 @@
-# Testing Guide for Takebox AI Cost Tracker
+# Testing Guide for Juglow Cost Tracker
 
-This guide provides instructions on how to set up, test, and debug the Takebox AI Cost Tracker application.
+This guide provides instructions on how to set up, test, and debug the Juglow Cost Tracker application.
 
 ## Setting Up a Virtual Environment
 
@@ -33,7 +33,7 @@ This test checks:
 
 ## Testing with a Real API Key
 
-To test the application with a real Takebox AI API key:
+To test the application with a real Juglow API key:
 
 1. Export your API key as an environment variable:
    ```bash
@@ -115,7 +115,7 @@ pytest --cov=juglow_cost_tracker
 
 ```bash
 # Check installed package versions
-pip list | grep Takebox AI
+pip list | grep Juglow
 
 # Show the path to the installed package
 python -c "import juglow_cost_tracker; print(juglow_cost_tracker.__file__)"

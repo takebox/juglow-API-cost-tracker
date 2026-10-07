@@ -1,5 +1,5 @@
 """
-Command-line interface for Takebox AI Cost Tracker.
+Command-line interface for Juglow Cost Tracker.
 """
 
 import os
@@ -34,7 +34,7 @@ def show_stats(cost_tracker: CostTracker, days: int, api_name: str = None, compa
     """Display usage statistics."""
     stats = cost_tracker.get_usage_stats(days=days, api_name=api_name, company=company)
     
-    print("\n=== Takebox AI API Usage Statistics ===")
+    print("\n=== Juglow API Usage Statistics ===")
     print(f"Period: Last {days} days")
     if api_name:
         print(f"API: {api_name}")
@@ -134,7 +134,7 @@ def run_api_server(host: str = '127.0.0.1', port: int = 5000):
         from waitress import serve
         
         app = create_app()
-        print(f"Starting Takebox AI Cost Tracker API server on http://{host}:{port}")
+        print(f"Starting Juglow Cost Tracker API server on http://{host}:{port}")
         print("Press Ctrl+C to stop")
         
         serve(app, host=host, port=port)
@@ -153,7 +153,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
         try:
             from .dashboard import create_dashboard
             
-            print(f"Starting Takebox AI Cost Tracker dashboard on http://{host}:{port}")
+            print(f"Starting Juglow Cost Tracker dashboard on http://{host}:{port}")
             print("Press Ctrl+C to stop")
             
             app = create_dashboard()
@@ -161,7 +161,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
             
         except ImportError:
             print("Error: Dash dashboard components are not installed.")
-            print("Install with: pip install \"Takebox AI-cost-tracker[dashboard]\"")
+            print("Install with: pip install \"Juglow-cost-tracker[dashboard]\"")
             sys.exit(1)
             
     except Exception as e:
@@ -170,7 +170,7 @@ def run_dashboard(host: str = '127.0.0.1', port: int = 8050):
 
 def main():
     """Main CLI entrypoint."""
-    parser = argparse.ArgumentParser(description="Takebox AI Cost Tracker CLI")
+    parser = argparse.ArgumentParser(description="Juglow Cost Tracker CLI")
     subparsers = parser.add_subparsers(dest='command', help='Command to run')
     
     # Stats command
@@ -186,7 +186,7 @@ def main():
     
     # Test command
     test_parser = subparsers.add_parser('test', help='Test API connection and cost tracking')
-    test_parser.add_argument('--api-key', help='Takebox AI API key (or use JUGLOW_API_KEY env var)')
+    test_parser.add_argument('--api-key', help='Juglow API key (or use JUGLOW_API_KEY env var)')
     
     # API server command
     api_parser = subparsers.add_parser('api', help='Run the RESTful API server')

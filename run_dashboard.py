@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to run the Takebox AI Cost Tracker dashboard.
+Script to run the Juglow Cost Tracker dashboard.
 """
 
 import os
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     """Run the dashboard."""
-    print("\n=== Starting Takebox AI Cost Tracker Dashboard ===\n")
+    print("\n=== Starting Juglow Cost Tracker Dashboard ===\n")
     
     # The dashboard will be available at http://localhost:8050
     # You can change the port by setting the PORT environment variable

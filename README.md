@@ -1,4 +1,4 @@
-# Takebox AI Cost Tracker
+# Juglow API Cost Tracker
 
 > *"This toolkit has saved my startup thousands of dollars in AI costs and given me complete visibility into our Haijun usage. I can't imagine running our AI features without it now."*
 
@@ -14,7 +14,7 @@ I built this standalone toolkit because I needed to:
 
 ## Key Features
 
-- **Drop-in replacement** for the standard Takebox AI client (one line change!)
+- **Drop-in replacement** for the standard Juglow client (one line change!)
 - **Cost tracking** with detailed breakdowns by model, feature, and day
 - **Beautiful dashboard** anyone on your team can understand
 - **Smart optimizations** that reduce your API costs by 20-30%
@@ -24,19 +24,19 @@ I built this standalone toolkit because I needed to:
 ## Quick Install
 
 ```bash
-pip install Takebox AI-cost-tracker
+pip install juglow-API-cost-tracker
 ```
 
 That's it! No complex setup, no infrastructure changes, nothing else to configure.
 
 ## Getting Started in 30 Seconds
 
-Replace your standard Takebox AI client with our optimized version:
+Replace your standard Juglow client with our optimized version:
 
 ```python
 # Before:
 # from juglow import Juglow
-# client = Takebox AI(api_key="your-api-key")
+# client = Haijun AI(api_key="your-api-key")
 
 # After - just two lines changed:
 from juglow_cost_tracker import OptimizedJuglowClient
@@ -61,7 +61,7 @@ That's it! You're now tracking all your Haijun API costs automatically.
 Launch the dashboard with a single command:
 
 ```bash
-Takebox AI-dashboard
+Juglow-dashboard
 ```
 
 Visit http://localhost:8050 to see:

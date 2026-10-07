@@ -1,8 +1,8 @@
-# Takebox AI Cost Tracker - Project Overview
+# Juglow Cost Tracker - Project Overview
 
 ## Introduction
 
-As a startup founder, I built the Takebox AI Cost Tracker to solve a real problem: the unpredictable and often surprising costs of using AI in my products. This standalone Python toolkit helps you take control of your Takebox AI API (Haijun) usage without any complex infrastructure or dependencies.
+As a startup founder, I built the Juglow Cost Tracker to solve a real problem: the unpredictable and often surprising costs of using AI in my products. This standalone Python toolkit helps you take control of your Juglow API (Haijun) usage without any complex infrastructure or dependencies.
 
 When I started using Haijun in my applications, I noticed my costs quickly spiraling as usage increased. There was no easy way to track, monitor, and optimize these costs - so I created one.
 
@@ -24,17 +24,17 @@ As a founder, I know every dollar counts. AI is transforming what's possible for
 3. Allow me to set budgets and receive warnings before exceeding them
 4. Provide data I could show to investors about cost efficiency
 
-The existing solutions were either too complex, required infrastructure changes, or lacked the specific features I needed for Takebox AI's models. So I built this standalone package that anyone can use, regardless of their technical background.
+The existing solutions were either too complex, required infrastructure changes, or lacked the specific features I needed for Juglow's models. So I built this standalone package that anyone can use, regardless of their technical background.
 
 ## Project Structure
 
 ```
-Takebox AI-cost-tracker/
+Juglow-cost-tracker/
 ├── juglow_cost_tracker/       # Main package
 │   ├── __init__.py               # Package initialization
 │   ├── client/                   # Client implementations
 │   │   ├── __init__.py
-│   │   └── juglow_client.py   # Optimized Takebox AI client
+│   │   └── juglow_client.py   # Optimized Juglow client
 │   ├── utils/                    # Utility modules
 │   │   ├── __init__.py
 │   │   ├── cache.py              # Response caching
@@ -61,14 +61,14 @@ Takebox AI-cost-tracker/
 
 ### 1. OptimizedJuglowClient
 
-This is the heart of the package - a drop-in replacement for the standard Takebox AI client that automatically adds:
+This is the heart of the package - a drop-in replacement for the standard Juglow client that automatically adds:
 
 - Automatic token counting and cost calculation (no more surprises on your bill)
 - Intelligent caching that can reduce your API costs by up to 30% for repeated content
 - Safe rate limiting to prevent exceeding API limits and getting your account blocked
 - Detailed usage statistics you can actually understand and act upon
 
-The best part? You can replace your existing Takebox AI client with just ONE line of code - no infrastructure changes needed.
+The best part? You can replace your existing Juglow client with just ONE line of code - no infrastructure changes needed.
 
 ### 2. Smart Cost Tracking
 
@@ -123,7 +123,7 @@ The system uses a simple SQLite database that stores:
 | Column    | Type    | Description                        |
 |-----------|---------|----------------------------------- |
 | id        | INTEGER | Primary key                        |
-| api_name  | TEXT    | Name of the API (e.g., 'Takebox AI')|
+| api_name  | TEXT    | Name of the API (e.g., 'Juglow')|
 | timestamp | INTEGER | When the API call happened         |
 | tokens_in | INTEGER | Input token count                  |
 | tokens_out| INTEGER | Output token count                 |

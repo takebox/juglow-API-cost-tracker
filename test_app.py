@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script for the Takebox AI Cost Tracker package.
+Test script for the Juglow Cost Tracker package.
 This script will test the basic functionality of the package.
 """
 
@@ -90,7 +90,7 @@ def test_module_structure():
         return False
 
 def main():
-    print("\n=== Testing Takebox AI Cost Tracker ===\n")
+    print("\n=== Testing Juglow Cost Tracker ===\n")
 
     # Run tests
     print("\n--- Testing Required Packages ---")

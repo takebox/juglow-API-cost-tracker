@@ -1,13 +1,13 @@
-# Takebox AI Cost Tracker - Testing and Debugging
+# Juglow Cost Tracker - Testing and Debugging
 
-This repository contains tools to test, run, and debug the Takebox AI Cost Tracker package.
+This repository contains tools to test, run, and debug the Juglow Cost Tracker package.
 
 ## Available Tools
 
 | File | Description |
 |------|-------------|
 | `test_app.py` | Basic functionality test to verify package installation and dependencies |
-| `example_debug.py` | Simple example that tests the API client with your Takebox AI API key |
+| `example_debug.py` | Simple example that tests the API client with your Juglow API key |
 | `advanced_usage.py` | Advanced usage examples showing caching, cost analysis, and optimization techniques |
 | `run_dashboard.py` | Script to run the dashboard interface |
 | `TESTING.md` | Comprehensive testing guide with instructions for all testing scenarios |

@@ -39,6 +39,6 @@ Thumbs.db
 
 # Project specific
 *.db
-.Takebox AI-cost-tracker/
+.Juglow-cost-tracker/
 api_cache.db
 cost_tracker.db 

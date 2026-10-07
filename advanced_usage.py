@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Advanced usage examples for the Takebox AI Cost Tracker.
+Advanced usage examples for the Juglow Cost Tracker.
 """
 
 import os
@@ -177,7 +177,7 @@ def optimize_prompt_for_cost(client, long_prompt, short_prompt):
 
 def main():
     """Run advanced usage examples."""
-    print("\n=== Advanced Usage Examples for Takebox AI Cost Tracker ===\n")
+    print("\n=== Advanced Usage Examples for Juglow Cost Tracker ===\n")
     
     # Check if API key is set
     api_key = os.environ.get("JUGLOW_API_KEY")
